@@ -1,0 +1,38 @@
+0 verbose cli /usr/local/Cellar/node/26.3.0/bin/node /usr/local/lib/node_modules/npm/bin/npm-cli.js
+1 info using npm@11.16.0
+2 info using node@v26.3.0
+3 silly config load:file:/usr/local/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/arnaudpiette/Documents/Codex/2026-06-11/files-mentioned-by-the-user-portfolio/Portfolio-architecte-sophie-bluel/Backend/.npmrc
+5 silly config load:file:/Users/arnaudpiette/.npmrc
+6 silly config load:file:/usr/local/etc/npmrc
+7 verbose title npm exec node@18 server.js
+8 verbose argv "exec" "--yes" "--" "node@18" "server.js"
+9 verbose logfile logs-max:10 dir:/Users/arnaudpiette/Documents/Codex/2026-06-11/files-mentioned-by-the-user-portfolio/Portfolio-architecte-sophie-bluel/Backend/.npm-cache/_logs/2026-06-11T07_46_22_095Z-
+10 verbose logfile /Users/arnaudpiette/Documents/Codex/2026-06-11/files-mentioned-by-the-user-portfolio/Portfolio-architecte-sophie-bluel/Backend/.npm-cache/_logs/2026-06-11T07_46_22_095Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:4395630592 maxSize:1098907648 maxEntrySize:549453824
+13 http fetch GET 200 https://registry.npmjs.org/node 187ms (cache revalidated)
+14 silly packumentCache heap:4395630592 maxSize:1098907648 maxEntrySize:549453824
+15 silly packumentCache heap:4395630592 maxSize:1098907648 maxEntrySize:549453824
+16 verbose shrinkwrap failed to load node_modules/.package-lock.json missing from lockfile: node_modules/node/node_modules/node-bin-setup
+17 silly idealTree buildDeps
+18 silly fetch manifest node@18.20.8
+19 silly packumentCache full:https://registry.npmjs.org/node cache-miss
+20 http cache https://registry.npmjs.org/node 11ms (cache hit)
+21 silly packumentCache full:https://registry.npmjs.org/node set size:1303996 disposed:false
+22 silly placeDep ROOT node@18.20.8 REPLACE for:  want: 18.20.8
+23 silly reify mark retired [
+23 silly reify   '/Users/arnaudpiette/Documents/Codex/2026-06-11/files-mentioned-by-the-user-portfolio/Portfolio-architecte-sophie-bluel/Backend/.npm-cache/_npx/83786caec519d9fd/node_modules/node/node_modules/node-bin-setup'
+23 silly reify ]
+24 silly reify mark retired [
+24 silly reify   '/Users/arnaudpiette/Documents/Codex/2026-06-11/files-mentioned-by-the-user-portfolio/Portfolio-architecte-sophie-bluel/Backend/.npm-cache/_npx/83786caec519d9fd/node_modules/node/node_modules/node-darwin-x64',
+24 silly reify   '/Users/arnaudpiette/Documents/Codex/2026-06-11/files-mentioned-by-the-user-portfolio/Portfolio-architecte-sophie-bluel/Backend/.npm-cache/_npx/83786caec519d9fd/node_modules/node/node_modules/.bin/node'
+24 silly reify ]
+25 silly reify moves {
+25 silly reify   '/Users/arnaudpiette/Documents/Codex/2026-06-11/files-mentioned-by-the-user-portfolio/Portfolio-architecte-sophie-bluel/Backend/.npm-cache/_npx/83786caec519d9fd/node_modules/node/node_modules/node-bin-setup': '/Users/arnaudpiette/Documents/Codex/2026-06-11/files-mentioned-by-the-user-portfolio/Portfolio-architecte-sophie-bluel/Backend/.npm-cache/_npx/83786caec519d9fd/node_modules/node/node_modules/.node-bin-setup-2yzpRTRh',
+25 silly reify   '/Users/arnaudpiette/Documents/Codex/2026-06-11/files-mentioned-by-the-user-portfolio/Portfolio-architecte-sophie-bluel/Backend/.npm-cache/_npx/83786caec519d9fd/node_modules/node/node_modules/node-darwin-x64': '/Users/arnaudpiette/Documents/Codex/2026-06-11/files-mentioned-by-the-user-portfolio/Portfolio-architecte-sophie-bluel/Backend/.npm-cache/_npx/83786caec519d9fd/node_modules/node/node_modules/.node-darwin-x64-tlBQzpqH',
+25 silly reify   '/Users/arnaudpiette/Documents/Codex/2026-06-11/files-mentioned-by-the-user-portfolio/Portfolio-architecte-sophie-bluel/Backend/.npm-cache/_npx/83786caec519d9fd/node_modules/node/node_modules/.bin/node': '/Users/arnaudpiette/Documents/Codex/2026-06-11/files-mentioned-by-the-user-portfolio/Portfolio-architecte-sophie-bluel/Backend/.npm-cache/_npx/83786caec519d9fd/node_modules/node/node_modules/.bin/.node-nWHSObx7'
+25 silly reify }
+26 silly audit bulk request { 'node-bin-setup': [ '1.1.4' ], node: [ '18.20.8' ] }
+27 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 286ms
+28 silly audit report {}

@@ -1,0 +1,32 @@
+0 verbose cli /usr/local/Cellar/node/26.3.0/bin/node /usr/local/lib/node_modules/npm/bin/npm-cli.js
+1 info using npm@11.16.0
+2 info using node@v26.3.0
+3 silly config load:file:/usr/local/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/arnaudpiette/Documents/Codex/2026-06-11/files-mentioned-by-the-user-portfolio/Portfolio-architecte-sophie-bluel/Backend/.npmrc
+5 silly config load:file:/Users/arnaudpiette/.npmrc
+6 silly config load:file:/usr/local/etc/npmrc
+7 verbose title npm exec node@18 server.js
+8 verbose argv "exec" "--yes" "--" "node@18" "server.js"
+9 verbose logfile logs-max:10 dir:/Users/arnaudpiette/Documents/Codex/2026-06-11/files-mentioned-by-the-user-portfolio/Portfolio-architecte-sophie-bluel/Backend/.npm-cache/_logs/2026-06-11T08_01_16_273Z-
+10 verbose logfile /Users/arnaudpiette/Documents/Codex/2026-06-11/files-mentioned-by-the-user-portfolio/Portfolio-architecte-sophie-bluel/Backend/.npm-cache/_logs/2026-06-11T08_01_16_273Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:4395630592 maxSize:1098907648 maxEntrySize:549453824
+13 http fetch GET 200 https://registry.npmjs.org/node 176ms (cache revalidated)
+14 silly packumentCache heap:4395630592 maxSize:1098907648 maxEntrySize:549453824
+15 silly packumentCache heap:4395630592 maxSize:1098907648 maxEntrySize:549453824
+16 silly idealTree buildDeps
+17 silly fetch manifest node@18.20.8
+18 silly packumentCache full:https://registry.npmjs.org/node cache-miss
+19 http fetch GET 200 https://registry.npmjs.org/node 40ms (cache revalidated)
+20 silly packumentCache full:https://registry.npmjs.org/node set size:1303996 disposed:false
+21 silly placeDep ROOT node@18.20.8 REPLACE for:  want: 18.20.8
+22 silly reify moves {}
+23 silly audit bulk request { 'node-bin-setup': [ '1.1.4' ], node: [ '18.20.8' ] }
+24 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 218ms
+25 silly audit report {}
+26 verbose cwd /Users/arnaudpiette/Documents/Codex/2026-06-11/files-mentioned-by-the-user-portfolio/Portfolio-architecte-sophie-bluel/Backend
+27 verbose os Darwin 24.6.0
+28 verbose node v26.3.0
+29 verbose npm  v11.16.0
+30 verbose exit 1
+31 verbose code 1
