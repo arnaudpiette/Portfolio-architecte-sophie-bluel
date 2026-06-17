@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Sophie Bluel - Architecte d'intérieur</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">	<meta name="description" content="">
+	<link rel="stylesheet" href="./assets/style.css">
+</head>
+<body class="login-page">
+<header>
+	<a href="index.html" class="logo">
+    	<h1>
+        Sophie Bluel
+        <span>Architecte d'intérieur</span>
+    	</h1>
+	</a>
+	<nav>
+		<ul>
+			<li><a href="index.html">projets</a></li>
+            <li><a href="index.html#contact">contact</a></li>
+            <li><a class="active" href="login.html">login</a></li>
+			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+		</ul>
+	</nav>
+</header>
+<main class="main-login">
+	<section class="login">
+
+        <h2>Log In</h2>
+
+        <form id="login-form" novalidate>
+
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email">
+            <p id="erreur-email" class="erreur"></p>
+
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" name="password">
+            <p id="erreur-password" class="erreur"></p>
+			
+			<p id="erreur-login" class="erreur erreur-login"></p>
+
+            <input type="submit" value="Se connecter">
+
+        </form>
+
+        <a href="#">Mot de passe oublié</a>
+
+    </section>
+</main>
+
+
+
+
+<footer>
+	<nav>
+		<ul>
+			<li>Mentions Légales</li>
+		</ul>
+	</nav>
+</footer>
+<script src="login.js"></script>
+</body>
+</html>
