@@ -129,15 +129,33 @@
 
             <form>
                 <div class="image-upload">
-                    Ajouter une image
-                </div>
+
+    				<img id="preview-image" alt="Prévisualisation">
+
+    				<div id="upload-content">
+        				<i class="fa-regular fa-image"></i>
+
+        				<label for="image">
+            				+ Ajouter photo
+        				</label>
+
+        				<p>jpg, png : 4mo max</p>
+    				</div>
+
+    <input
+        id="image"
+        type="file"
+        accept=".jpg,.jpeg,.png"
+        hidden
+    >
+</div>
 
                 <label>Titre</label>
                 <input type="text">
 
                 <label>Catégorie</label>
 
-                <select>
+                <select id="category">
                 </select>
 
                 <hr>
