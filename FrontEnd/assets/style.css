@@ -55,6 +55,7 @@ body{
 	font-family:"Work Sans",sans-serif;
 	font-size:14px;
 	line-height:1;
+	background:#FFFEF8;
 }
 
 main{
@@ -232,9 +233,16 @@ nav ul li a:hover{
 	gap:20px;
 }
 
+.gallery figure{
+    aspect-ratio:1 / 1.35;
+    overflow:hidden;
+}
+
 .gallery img{
-	width:100%;
-	display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
 }
 
 /* ===========================
@@ -272,13 +280,13 @@ nav ul li a:hover{
 }
 
 #contact input{
-	height:50px;
-	font-size:1.2em;
+	height: 36px;
+	font-size:1em;
 }
 
 input[type="submit"]{
-	width:180px;
-	margin:2em auto;
+	width:237px;
+	margin:3em auto;
 	border-radius:60px;
 	background:#1D6154;
 	color:white;
@@ -292,13 +300,35 @@ input[type="submit"]{
 =========================== */
 
 footer{
-	margin-top:auto;
+    position:relative;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:60px;
+    background:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+footer nav{
+    width:1140px;
 }
 
 footer nav ul{
-	display:flex;
-	justify-content:flex-end;
-	margin:2em;
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    height:100%;
+    margin:0;
+    padding-right:30px;
+}
+
+footer li{
+    font-family:"Work Sans", sans-serif;
+    font-size:14px;
+    font-weight:300;
+    color:#000;
 }
 
 /* ===========================
@@ -333,10 +363,10 @@ footer nav ul{
 .modal-content{
     position:relative;
     width:630px;
-    min-height:690px;
+    min-height:auto;
     background:white;
     border-radius:10px;
-    padding:55px 95px 45px;
+    padding:15px 105px 10px;
     box-sizing:border-box;
 }
 
@@ -357,7 +387,7 @@ footer nav ul{
 
 #modal-gallery h3,
 #modal-form h3{
-    font-family:"Work Sans";
+    font-family:"Work Sans", sans-serif;
     font-size:26px;
     font-weight:400;
     margin-bottom:35px;
@@ -368,110 +398,35 @@ footer nav ul{
     display:block;
 }
 
-.modal-gallery-container{
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:10px;
-    margin:40px 0;
-}
-
-.modal-gallery-container figure{
-    position:relative;
-}
-
-.modal-gallery-container img{
-    width:100%;
-    display:block;
-}
-
-
-
-/* Bouton ajouter photo */
-
-#add-photo {
-    display: block;
-    width: 237px;
-    height: 36px;
-    margin: 38px auto 0;
-    border: none;
-    border-radius: 60px;
-    background: #1D6154;
-    color: white;
-    font-family: "Syne";
-    font-size: 14px;
-    font-weight: 700;
-    cursor: pointer;
-}
-
-/* Bouton back modal */
-
-#back-modal{
-    position:absolute;
-    top:20px;
-    left:20px;
-    border:none !important; 
-    background:none !important;
-    box-shadow:none;
-    padding:0;
-    cursor:pointer;
-    font-size:22px;
-}
-
-/* Flèche select menu déroulant */
-
-#modal-form select{
-    padding-left:15px;
-    padding-right:15px;
-}
-
-/* Formulaire */
-
 #modal-form{
     display:none;
 }
 
-#modal-form {
-    display: none;
+/* Galerie modale */
+
+.modal-gallery-container{
+    display:grid;
+    grid-template-columns:repeat(5, 76px);
+    gap:10px;
+    justify-content:center;
+    margin:40px 0 70px;
 }
 
-#modal-form form {
-    display: flex;
-    flex-direction: column;
+.modal-gallery-container figure{
+    position:relative;
+    width:76px;
+    height:102px;
+    overflow:hidden;
 }
 
-#modal-form label {
-    margin-top: 30px;
-    margin-bottom: 10px;
-    font-weight: 500;
-}
-
-#modal-form input,
-#modal-form select {
-    height: 50px;
-    border: none;
-    box-shadow: 0 4px 14px rgba(0,0,0,.09);
-    padding: 0 16px;
-    font-size: 14px;
-}
-
-.modal hr{
+.modal-gallery-container img{
     width:100%;
-    margin:45px 0 35px;
-    border:none;
-    border-top:1px solid #B3B3B3;
+    height:100%;
+    object-fit:cover;
+    display:block;
 }
 
-#modal-form button[type="submit"] {
-    width: 237px;
-    height: 36px;
-    margin: auto;
-    border: none;
-    border-radius: 60px;
-    background: #A7A7A7;
-    color: white;
-    font-family: "Syne";
-    font-weight: 700;
-}
+/* Bouton poubelle */
 
 .delete-button{
     position:absolute;
@@ -494,51 +449,142 @@ footer nav ul{
     color:white;
 }
 
+/* Bouton ajouter photo */
+
+#add-photo{
+    display:block;
+    width:237px;
+    height:36px;
+    margin:38px auto 0;
+    border:none;
+    border-radius:60px;
+    background:#1D6154;
+    color:white;
+    font-family:"Syne";
+    font-size: 1em;;
+    font-weight:700;
+    cursor:pointer;
+}
+
+/* Bouton retour */
+
+#back-modal{
+    position:absolute;
+    top:20px;
+    left:20px;
+    border:none;
+    background:none;
+    box-shadow:none;
+    padding:0;
+    cursor:pointer;
+    font-size:22px;
+}
+
+/* Formulaire */
+
+#modal-form form{
+    display:flex;
+    flex-direction:column;
+}
+
+#modal-form label{
+    margin-top:20px;
+    margin-bottom:10px;
+    font-weight:500;
+}
+
+#modal-form input,
+#modal-form select{
+    height:50px;
+    border:none;
+    box-shadow:0 4px 14px rgba(0,0,0,.09);
+    padding:0 16px;
+    font-size:14px;
+}
+
+#modal-form select{
+    padding-left:15px;
+    padding-right:45px;
+    appearance:none;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    background-color:white;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999999' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;
+    background-position:right 18px center;
+}
+
+.modal hr{
+    width:100%;
+    margin:35px 0 28px;
+    border:none;
+    border-top:1px solid #B3B3B3;
+}
+
+#modal-form button[type="submit"]{
+    width:237px;
+    height:36px;
+    margin:auto;
+    border:none;
+    border-radius:60px;
+    background:#A7A7A7;
+    color:white;
+    font-family:"Syne";
+    font-weight:700;
+    cursor:not-allowed;
+    font-size: 1em;
+}
+
+#modal-form button[type="submit"].is-ready{
+    background:#1D6154;
+    cursor:pointer;
+}
+
+/* Upload image */
+
 .image-upload{
     width:420px;
     height:169px;
+    margin:0 auto 0;
+    padding: 20px;
     background:#E8F1F6;
     border-radius:3px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
     position:relative;
     overflow:hidden;
 }
 
 #upload-content{
+    position:absolute;
+    inset:0;
     display:flex;
     flex-direction:column;
+    justify-content:center;
     align-items:center;
-    gap:8px;
+    gap:0;
 }
 
 #upload-content i{
-    font-size:58px;
+    font-size:76px;
     color:#B9C5CC;
+    line-height:1;
 }
 
 .image-upload label{
-    padding:10px 25px;
-    border-radius:50px;
+    width:173px;
+    height:36px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:0;
     background:#CBD6DC;
+    border-radius:50px;
     color:#306685;
-    cursor:pointer;
-    font-weight:600;
-}
-
-.image-upload p{
-    margin-top:8px;
-	padding:0;
-    font-size:10px;
-    color:#444;
-}
-
-.image-upload img{
-    display:block;
+    font-size:14px;
+    font-weight:500;
 }
 
 #upload-content p{
+    margin:0;
     font-size:10px;
     color:#444;
 }
@@ -561,18 +607,20 @@ footer nav ul{
 =========================== */
 
 .login-page .main-login{
-
 	display:flex;
 	justify-content:center;
 	align-items:center;
 }
 
 .login-page .login{
-
 	width:380px;
 	display:flex;
 	flex-direction:column;
 	align-items:center;
+}
+
+.login-page .login h2{
+    margin-bottom:36px;
 }
 
 .login-page .login form{
@@ -589,7 +637,6 @@ footer nav ul{
 .login-page .login input{
 	height:50px;
 	width: 100%;
-	margin-bottom:4px;
 	border:none;
 	box-sizing:border-box;
 	box-shadow:0 4px 14px rgba(0,0,0,.09);
@@ -597,8 +644,10 @@ footer nav ul{
 
 .login-page .login input[type="submit"]{
 	width:180px;
-	margin:auto;
+    height:36px;
+	margin-top: 0;
 	border-radius:60px;
+    padding: 10px;
 	background:#1D6154;
 	color:white;
 	font-family:"Syne";
@@ -607,7 +656,7 @@ footer nav ul{
 }
 
 .login-page .login a{
-	margin-top:30px;
+	margin-top:0;
 	color:black;
 	text-decoration:underline;
 }
@@ -633,3 +682,22 @@ footer nav ul{
     margin-bottom:20px;
 }
 
+.password-container{
+    position:relative;
+    width:100%;
+}
+
+.password-container input{
+    width:100%;
+    padding-right:45px;
+}
+
+#toggle-password{
+    position:absolute;
+    right:15px;
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+    color:#999;
+    font-size:16px;
+}

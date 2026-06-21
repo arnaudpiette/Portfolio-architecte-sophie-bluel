@@ -127,7 +127,7 @@
             </button>
             <h3>Ajout photo</h3>
 
-            <form>
+            <form id="add-work-form">
                 <div class="image-upload">
 
     				<img id="preview-image" alt="Prévisualisation">
@@ -142,20 +142,21 @@
         				<p>jpg, png : 4mo max</p>
     				</div>
 
-    <input
-        id="image"
-        type="file"
-        accept=".jpg,.jpeg,.png"
-        hidden
-    >
-</div>
+    				<input
+        				id="image"
+        				type="file"
+        				accept=".jpg,.jpeg,.png"
+        				hidden
+    				>
+				</div>
 
                 <label>Titre</label>
-                <input type="text">
+                <input type="text" id="title">
 
                 <label>Catégorie</label>
 
                 <select id="category">
+					<option value="" selected disabled></option>
                 </select>
 
                 <hr>
@@ -168,7 +169,7 @@
     </div>
 </div>
 
-<script src="script.js"></script>
+<script src="script1.js"></script>
 
 </body>
 

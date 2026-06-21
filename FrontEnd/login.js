@@ -29,6 +29,7 @@ const erreurEmail = document.querySelector("#erreur-email");
 const erreurPassword = document.querySelector("#erreur-password");
 const erreurLogin = document.querySelector("#erreur-login");
 
+
 // Affichage erreur API
 function afficherErreurConnexion() {
     erreurLogin.textContent =
