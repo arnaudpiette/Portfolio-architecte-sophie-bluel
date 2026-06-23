@@ -43,6 +43,7 @@ const gallery = document.querySelector(".gallery");
 
 const modal = document.querySelector("#modal");
 const modalGalleryView = document.querySelector("#modal-gallery");
+const modalContent = document.querySelector(".modal-content");
 const modalFormView = document.querySelector("#modal-form");
 const closeModalButton = document.querySelector("#close-modal");
 const addPhotoButton = document.querySelector("#add-photo");
@@ -57,6 +58,7 @@ const titleInput = document.querySelector("#modal-form input[type='text']");
 const categorySelect = document.querySelector("#category");
 const previewImage = document.querySelector("#preview-image");
 const uploadContent = document.querySelector("#upload-content");
+
 
 
 // Gestion des erreurs et du bouton Valider
@@ -234,7 +236,7 @@ function renderModalGallery() {
 		deleteButton.addEventListener("click", async (event) => {
 			event.preventDefault();
 			event.stopPropagation();
-			event.stopImmediatePropagation();
+
 
 			await deleteWork(work.id);
 		});
@@ -306,6 +308,8 @@ function closeModal() {
 // ===========================
 
 function showModalGallery() {
+		if (!modalGalleryView || !modalFormView) return;
+
 	modalGalleryView.style.display = "block";
 	modalFormView.style.display = "none";
 }
@@ -316,6 +320,8 @@ function showModalGallery() {
 // ===========================
 
 function showModalForm() {
+		if (!modalGalleryView || !modalFormView) return;
+
 	modalGalleryView.style.display = "none";
 	modalFormView.style.display = "block";
 }
@@ -335,10 +341,10 @@ async function deleteWork(id) {
 			},
 		});
 
-		// Rechargement complet depuis l'API
-		state.works = await requestApi("/works");
+		// On met l'état local à jour sans fermer la modale.
+		state.works = state.works.filter((work) => work.id !== id);
 
-		// Mise à jour des deux galeries sans fermer la modale
+		// Mise à jour des deux galeries en conservant explicitement la vue galerie ouverte.
 		renderGallery();
 		renderModalGallery();
 
@@ -488,6 +494,7 @@ async function addWork(event) {
 // ===========================
 
 function bindEvents() {
+
 	editButton?.addEventListener("click", openModal);
 	closeModalButton?.addEventListener("click", closeModal);
 	addPhotoButton?.addEventListener("click", showModalForm);
@@ -497,11 +504,17 @@ function bindEvents() {
 	titleInput?.addEventListener("input", updateSubmitState);
 	categorySelect?.addEventListener("change", updateSubmitState);
 
+	modalContent?.addEventListener("click", (event) => {
+		event.stopPropagation();
+	});
+
 	modal?.addEventListener("click", (event) => {
 		if (event.target === modal) {
 			closeModal();
 		}
 	});
+
+	
 }
 
 
