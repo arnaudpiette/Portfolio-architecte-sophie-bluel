@@ -1,3 +1,5 @@
+console.log("Script chargé");
+
 // ===========================
 // FACTORISER LES URL
 // ===========================
@@ -52,7 +54,7 @@ const modalGallery = document.querySelector(".modal-gallery-container");
 
 // Formulaire d'ajout
 
-const addWorkForm = document.querySelector("#modal-form form");
+const addWorkForm = document.querySelector("#add-work-form");
 const imageInput = document.querySelector("#image");
 const titleInput = document.querySelector("#modal-form input[type='text']");
 const categorySelect = document.querySelector("#category");
@@ -233,14 +235,6 @@ function renderModalGallery() {
 		deleteButton.setAttribute("aria-label", `Supprimer ${work.title}`);
 		deleteButton.innerHTML = '<i class="fa-solid fa-trash-can" aria-hidden="true"></i>';
 
-		deleteButton.addEventListener("click", async (event) => {
-			event.preventDefault();
-			event.stopPropagation();
-
-
-			await deleteWork(work.id);
-		});
-
 		figure.append(image, deleteButton);
 		modalGallery.appendChild(figure);
 	});
@@ -295,11 +289,10 @@ function openModal() {
 // ===========================
 
 function closeModal() {
-	if (!modal) return;
-
-	modal.style.display = "none";
-	resetAddWorkForm();
-	showModalGallery();
+    console.trace("closeModal appelée depuis :"); // affiche la pile d'appels
+    modal.style.display = "none";
+    resetAddWorkForm();
+    showModalGallery();
 }
 
 
@@ -332,8 +325,6 @@ function showModalForm() {
 
 async function deleteWork(id) {
 	try {
-		console.log("Suppression ID :", id);
-
 		await requestApi(`/works/${id}`, {
 			method: "DELETE",
 			headers: {
@@ -341,10 +332,8 @@ async function deleteWork(id) {
 			},
 		});
 
-		// On met l'état local à jour sans fermer la modale.
 		state.works = state.works.filter((work) => work.id !== id);
 
-		// Mise à jour des deux galeries en conservant explicitement la vue galerie ouverte.
 		renderGallery();
 		renderModalGallery();
 
@@ -453,9 +442,14 @@ function previewSelectedImage() {
 // ===========================
 
 async function addWork(event) {
-	event.preventDefault();
+    event.preventDefault();
+    console.log("defaultPrevented:", event.defaultPrevented); // doit afz	a
+    event.stopPropagation();
+
+	console.log("Début ajout");
 
 	const errorMessage = validateAddWorkForm();
+
 	if (errorMessage) {
 		showAddWorkError(errorMessage);
 		updateSubmitState();
@@ -469,6 +463,7 @@ async function addWork(event) {
 
 	try {
 		submitAddWorkButton.disabled = true;
+
 		const createdWork = await requestApi("/works", {
 			method: "POST",
 			headers: {
@@ -479,11 +474,16 @@ async function addWork(event) {
 
 		state.works.push(createdWork);
 		state.activeCategoryId = "all";
-		renderAll();
+
+		renderGallery();
+		renderModalGallery();
 		closeModal();
+
 	} catch (error) {
-		console.error(error);
+		console.error("Erreur ajout :", error);
 		showAddWorkError("Une erreur est survenue pendant l'ajout.");
+
+	} finally {
 		updateSubmitState();
 	}
 }
@@ -494,27 +494,48 @@ async function addWork(event) {
 // ===========================
 
 function bindEvents() {
-
 	editButton?.addEventListener("click", openModal);
 	closeModalButton?.addEventListener("click", closeModal);
 	addPhotoButton?.addEventListener("click", showModalForm);
 	backModalButton?.addEventListener("click", showModalGallery);
-	addWorkForm?.addEventListener("submit", addWork);
+
+	submitAddWorkButton?.addEventListener("click", addWork);
+
 	imageInput?.addEventListener("change", previewSelectedImage);
 	titleInput?.addEventListener("input", updateSubmitState);
 	categorySelect?.addEventListener("change", updateSubmitState);
+
+	modalGallery?.addEventListener("click", async (event) => {
+		const clickedElement = event.target;
+
+		if (!(clickedElement instanceof Element)) return;
+		
+		event.preventDefault();
+		event.stopPropagation();
+
+		const deleteButton = clickedElement.closest(".delete-button");
+
+		if (!deleteButton) return;
+
+		
+
+		const workId = Number(deleteButton.dataset.id);
+
+		if (!workId) return;
+
+		await deleteWork(workId);
+	});
 
 	modalContent?.addEventListener("click", (event) => {
 		event.stopPropagation();
 	});
 
 	modal?.addEventListener("click", (event) => {
-		if (event.target === modal) {
-			closeModal();
-		}
+    	// S'assurer que le clic vient vraiment du fond et pas d'un enfant
+    	if (event.target === modal && modal.style.display !== "none") {
+        closeModal();
+    	}
 	});
-
-	
 }
 
 
